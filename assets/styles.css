@@ -1053,3 +1053,41 @@ footer{view-transition-name:mt-foot}
 /* logo klienta: nad ciemnym hero nav jest przezroczysty -> znak w wersji jasnej */
 .nav:not(.nav-solid) .brand-logo{filter:brightness(0) invert(1);opacity:.94}
 .pagehead .nav:not(.nav-solid) .brand-logo{filter:brightness(0) invert(1)}
+
+
+/* === PALETA 03.08.2026 (v4): mniej niebieskiego, jaśniej + brązowy blok „Jak pracuję" ===
+   1) Błękity idą wyraźnie w górę jasności: tło strony jest prawie białe z chłodną nutą,
+      pasy sekcji są delikatne. Niebieskiego jest przez to mniej i jest jaśniejszy.
+   2) Sekcja procesu (01-04) stała na jasnym tle i ginęła. Dostaje głęboki brąz #663F30
+      z białą typografią - jeden ciepły, mocny blok przełamuje chłodną stronę
+      i to on robi charakter, zamiast kolejnego niebieskiego pasa.
+   Ten blok jest OSTATNIM :root w pliku, więc on wygrywa. */
+:root{
+  --paper:#F8FBFE;          /* tło strony - prawie biel z chłodną nutą */
+  --paper-2:#EAF4FC;        /* pasy sekcji - lekki błękit */
+  --paper-3:#DCEDF9;        /* wypełnienia - jaśniejszy niż wcześniej */
+}
+
+/* --- SEKCJA PROCESU: brąz + biały napis --- */
+.proces{
+  background:linear-gradient(158deg,#70493A 0%,#663F30 46%,#57352A 100%);
+  color:#fff;
+}
+.proces .head h2{color:#fff}
+.proces .head p{color:rgba(255,255,255,.80)}
+.proces .head h2::after{background:rgba(255,255,255,.6)}
+.proces .eyebrow{color:#F1D8CB}
+.proces .eyebrow::before{background:#F1D8CB}
+/* oś: kreska i kropka w kontrze do ciemnego tła (wcześniej brąz na brązie = nic nie widać) */
+.proces-line li::before{background:rgba(255,255,255,.26)}
+.proces-line li::after{background:#fff;box-shadow:0 0 0 4px #6A4434}
+/* numery: duże, białe - to one niosą sekcję zamiast dawnego drobnego granatu */
+.proces-line .pno{
+  color:#fff;
+  font-size:clamp(2rem,1.2rem + 2.4vw,2.9rem);
+  line-height:1;
+  letter-spacing:-.03em;
+  margin-bottom:var(--space-4);
+}
+.proces-line h3{color:#fff}
+.proces-line p{color:rgba(255,255,255,.80)}
