@@ -5,19 +5,19 @@
    ============================================================ */
 
 :root{
-  /* PALETA - ciepły brąz + chłodna szałwia (ACB5A8), aktualizacja 03.08.2026 */
-  --paper:#F8F8F6;          /* główne tło */
-  --paper-2:#E3E9E1;        /* sekcje alternatywne (jasna szałwia) */
-  --paper-3:#D3DBD1;        /* delikatne wypełnienia */
-  --ink:#1B2A31;            /* tekst główny - chłodny grafit */
-  --ink-soft:#2E4650;       /* nagłówki drugorzędne */
-  --muted:#5C6F76;          /* tekst poboczny */
-  --line:rgba(27,42,49,.14);/* hairline */
-  --accent:#A05B28;         /* ciepły brąz - główny akcent */
-  --accent-d:#7C441C;
-  --accent-soft:rgba(160,91,40,.10);
-  --accent-2:#ACB5A8;       /* chłodna szałwia - drugi kolor, gra na ciemnych sekcjach */
-  --dark:#16262E;           /* sekcje ciemne (stopka/CTA) - głęboki chłodny grafit */
+  /* PALETA - chłodny niebieski (bez brązu), aktualizacja 03.08.2026 */
+  --paper:#F7F9FB;          /* główne tło - chłodna biel */
+  --paper-2:#E7EEF4;        /* sekcje alternatywne (jasny błękit) */
+  --paper-3:#D6E2EC;        /* delikatne wypełnienia */
+  --ink:#12242F;            /* tekst główny - granatowy grafit */
+  --ink-soft:#22414F;       /* nagłówki drugorzędne */
+  --muted:#56707F;          /* tekst poboczny */
+  --line:rgba(18,36,47,.14);/* hairline */
+  --accent:#1D5A87;         /* głęboki niebieski - główny akcent */
+  --accent-d:#14425F;
+  --accent-soft:rgba(29,90,135,.10);
+  --accent-2:#7FB2D6;       /* jasny błękit - drugi kolor, gra na ciemnych sekcjach */
+  --dark:#0F2433;           /* sekcje ciemne (stopka/CTA) - granat */
 
   /* ODSTĘPY — skala 4/8 */
   --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px;
@@ -145,7 +145,7 @@ p{max-width:65ch}
 .hero-art img{width:100%;height:100%;object-fit:cover}
 .hero-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(18,24,28,.28))}
 .hero-badge{position:absolute;left:var(--space-5);bottom:var(--space-5);z-index:2;
-  background:rgba(252,252,251,.94);backdrop-filter:blur(4px);
+  background:rgba(249,251,253,.94);backdrop-filter:blur(4px);
   border-radius:var(--r-md);padding:var(--space-4) var(--space-5);box-shadow:var(--sh-md);max-width:78%}
 .hero-badge strong{display:block;font-family:var(--font-display);font-size:1rem;letter-spacing:-.01em}
 .hero-badge span{font-size:var(--text-sm);color:var(--muted)}
@@ -526,8 +526,8 @@ section{padding-block:clamp(64px,8vw,128px)}
    ============================================================ */
 
 /* --- P0 KONTRAST: bursztyn jako TEKST na jasnym = 2.0 FAIL (policzone). Naprawy (bursztyn->ciemny tekst / ink). --- */
-.btn-accent{color:#14171c}                                  /* bursztyn + ciemny tekst = 8.28 PASS */
-.sticky-call .sc-call{color:#14171c}                        /* sticky bursztyn + ciemny tekst */
+.btn-accent{color:#10202C}                                  /* bursztyn + ciemny tekst = 8.28 PASS */
+.sticky-call .sc-call{color:#10202C}                        /* sticky bursztyn + ciemny tekst */
 .obszar-list li.is-home{background:var(--ink);border-color:var(--ink);color:#fff}  /* było bursztyn+biel 2.17 -> ink+biel 16.29 */
 .proces-line .pno{color:var(--ink-soft)}                    /* numery procesu: było bursztyn 2.0 -> ink-soft (czytelne); kropka osi zostaje bursztyn (grafika) */
 
@@ -638,8 +638,8 @@ section{padding-block:clamp(64px,8vw,128px)}
 .ba-handle span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;
   background:var(--accent);box-shadow:0 2px 12px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center}
 .ba-handle span::before,.ba-handle span::after{content:"";position:absolute;width:0;height:0;border-block:5px solid transparent}
-.ba-handle span::before{left:9px;border-right:6px solid #14171c}
-.ba-handle span::after{right:9px;border-left:6px solid #14171c}
+.ba-handle span::before{left:9px;border-right:6px solid #10202C}
+.ba-handle span::after{right:9px;border-left:6px solid #10202C}
 .ba-podpis{text-align:center;color:var(--muted);font-size:var(--text-sm);margin-top:var(--space-5)}
 
 /* === NAV NOBU (silnik): fachowcy === */
@@ -654,17 +654,17 @@ section{padding-block:clamp(64px,8vw,128px)}
 .nav .nav-links a::after{height:1px}
 .nav .nav-links a.btn-accent{font-size:.73rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:.5rem 1.1rem;border-radius:4px;box-shadow:none}
 .nav .nav-links a.btn-accent:hover{transform:none;box-shadow:none}
-.nav .nav-links a.btn-accent{background:var(--accent);border:1px solid var(--accent);color:#14171c}
-.nav .nav-links a.btn-accent:hover{background:var(--accent);border-color:var(--accent);color:#14171c;filter:brightness(1.07)}
+.nav .nav-links a.btn-accent{background:var(--accent);border:1px solid var(--accent);color:#10202C}
+.nav .nav-links a.btn-accent:hover{background:var(--accent);border-color:var(--accent);color:#10202C;filter:brightness(1.07)}
 .nav{background:transparent}
-.nav::after{content:"";position:absolute;left:0;right:0;top:0;height:150px;z-index:-1;pointer-events:none;transition:opacity .35s ease;background:linear-gradient(180deg,rgba(8,6,4,.55) 0%,rgba(8,6,4,0) 100%)}
+.nav::after{content:"";position:absolute;left:0;right:0;top:0;height:150px;z-index:-1;pointer-events:none;transition:opacity .35s ease;background:linear-gradient(180deg,rgba(5,13,21,.55) 0%,rgba(5,13,21,0) 100%)}
 .nav.nav-solid::after{opacity:0}
-.nav .brand .name{color:#F2F4F0}
-.nav .brand .sub{color:rgba(242,244,240,.82)}
-.nav .nav-links a:not(.btn-accent){color:rgba(242,244,240,.9)}
+.nav .brand .name{color:#EEF3F7}
+.nav .brand .sub{color:rgba(238,243,247,.82)}
+.nav .nav-links a:not(.btn-accent){color:rgba(238,243,247,.9)}
 .nav .nav-links a:not(.btn-accent):hover,.nav .nav-links a.active:not(.btn-accent){color:#fff}
 .nav .nav-links a:not(.btn-accent)::after{background:#fff}
-.nav .nav-toggle span{background:#F2F4F0}
+.nav .nav-toggle span{background:#EEF3F7}
 .nav.nav-solid{background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:saturate(140%) blur(10px);border-bottom:var(--hairline)}
 .nav.nav-solid .brand .name{color:var(--ink)}
 .nav.nav-solid .brand .sub{color:var(--accent-d)}
@@ -677,8 +677,8 @@ section{padding-block:clamp(64px,8vw,128px)}
 .nav .nav-inner{position:relative;height:64px}
 .nav .nav-links{flex:1;justify-content:center;gap:clamp(1rem,2.2vw,1.9rem);padding-right:12rem}
 .nav .nav-links a.btn-accent{position:absolute;right:0;top:50%;transform:translateY(-50%);margin:0}
-.nav:not(.nav-solid) .nav-links a.btn-accent{background:transparent;border-color:rgba(242,244,240,.55);color:#F2F4F0}
-.nav:not(.nav-solid) .nav-links a.btn-accent:hover{background:var(--accent);border-color:var(--accent);color:#14171c;transform:translateY(-50%)}
+.nav:not(.nav-solid) .nav-links a.btn-accent{background:transparent;border-color:rgba(238,243,247,.55);color:#EEF3F7}
+.nav:not(.nav-solid) .nav-links a.btn-accent:hover{background:var(--accent);border-color:var(--accent);color:#10202C;transform:translateY(-50%)}
 }
 @media(max-width:680px){
 .nav .nav-links:not(.open){transform:translateY(-160%);visibility:hidden}
@@ -1004,22 +1004,23 @@ footer{view-transition-name:mt-foot}
 /* === /HERO-FIT === */
 
 
-/* === PALETA 03.08.2026: ciepły brąz + chłodna szałwia ACB5A8 ===
-   Zastąpiła jednolitą, oliwkowo-brązową auto-paletę (#916322) - była za mdła.
-   Ciepły brąz zostaje głównym akcentem (przyciski, linki, ikony na jasnym),
-   ACB5A8 wchodzi jako drugi kolor: jasne pasy sekcji + detale na ciemnym tle,
-   gdzie brąz gaśnie. Ten blok jest OSTATNIM :root w pliku, więc on wygrywa. */
+/* === PALETA 03.08.2026 (v2): chłodny niebieski, ZERO brązu ===
+   Poprzednia wersja łączyła ciepły brąz z szałwią ACB5A8 - jasny brąz miał zejść
+   całkowicie, a całość ma być chłodniejsza i mocniej niebieska.
+   Głęboki niebieski #1D5A87 jest głównym akcentem (przyciski, linki, ikony na jasnym),
+   jasny błękit #7FB2D6 wchodzi jako drugi kolor: pasy sekcji + detale na ciemnym tle.
+   Ten blok jest OSTATNIM :root w pliku, więc on wygrywa. */
 :root{
-  --accent:#A05B28;--accent-d:#7C441C;--accent-soft:rgba(160,91,40,0.10);
-  --accent-2:#ACB5A8;
-  --paper:#F8F8F6;--paper-2:#E3E9E1;--paper-3:#D3DBD1;
-  --ink:#1B2A31;--ink-soft:#2E4650;--muted:#5C6F76;
-  --line:rgba(27,42,49,.14);
-  --dark:#16262E;
+  --accent:#1D5A87;--accent-d:#14425F;--accent-soft:rgba(29,90,135,0.10);
+  --accent-2:#7FB2D6;
+  --paper:#F7F9FB;--paper-2:#E7EEF4;--paper-3:#D6E2EC;
+  --ink:#12242F;--ink-soft:#22414F;--muted:#56707F;
+  --line:rgba(18,36,47,.14);
+  --dark:#0F2433;
 }
 
-/* Na ciemnych sekcjach (hero, pasek, CTA, stopka, „awaria") brąz robi się błotnisty
-   - tam detale idą szałwią ACB5A8, przez co oba kolory faktycznie się przeplatają. */
+/* Na ciemnych sekcjach (hero, pasek, CTA, stopka, „awaria") ciemny niebieski gaśnie
+   - tam detale idą jasnym błękitem #7FB2D6, więc oba odcienie się przeplatają. */
 .cta .eyebrow,.awaria .eyebrow{color:var(--accent-2)}
 .cta .eyebrow::before,.awaria .eyebrow::before{background:var(--accent-2)}
 .foot-col h4{color:var(--accent-2);opacity:.85}
@@ -1029,8 +1030,8 @@ footer{view-transition-name:mt-foot}
   .hero-fach{--accent-lit:color-mix(in srgb,var(--accent-2) 88%,#fff)}
 }
 
-/* KONTRAST: wcześniejszy blok „P0" ustawiał na przyciskach akcentu CIEMNY tekst (#14171c),
-   bo liczono go dla jasnego bursztynu. Nasz akcent jest ciemnym brązem - tam poprawnie
+/* KONTRAST: wcześniejszy blok „P0" ustawiał na przyciskach akcentu CIEMNY tekst (#10202C),
+   bo liczono go dla jasnego bursztynu. Nasz akcent jest głębokim niebieskim - tam poprawnie
    czyta się biel (5.2:1), ciemny tekst dawał 3.5:1. */
 .btn-accent,.nav .nav-links a.btn-accent,.nav .nav-links a.btn-accent:hover,
 .nav:not(.nav-solid) .nav-links a.btn-accent:hover,
