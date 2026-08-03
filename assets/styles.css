@@ -5,18 +5,19 @@
    ============================================================ */
 
 :root{
-  /* PALETA — jasna, architektoniczna, chłodna */
-  --paper:#f5f7fa;          /* główne tło */
-  --paper-2:#e7edf3;        /* sekcje alternatywne (chłodny jasny szary) */
-  --paper-3:#e7edf3;        /* delikatne wypełnienia */
-  --ink:#142231;            /* tekst główny — chłodny grafit */
-  --ink-soft:#2c3e52;       /* nagłówki drugorzędne */
-  --muted:#697785;          /* tekst poboczny */
-  --line:rgba(20,34,49,.12);/* hairline */
-  --accent:#e8a00c;         /* stonowany petrol-slate — jedyny akcent */
-  --accent-d:#c47f06;
-  --accent-soft:rgba(232,160,12,.10);
-  --dark:#142231;           /* sekcje ciemne (stopka/CTA) */
+  /* PALETA - ciepły brąz + chłodna szałwia (ACB5A8), aktualizacja 03.08.2026 */
+  --paper:#F8F8F6;          /* główne tło */
+  --paper-2:#E3E9E1;        /* sekcje alternatywne (jasna szałwia) */
+  --paper-3:#D3DBD1;        /* delikatne wypełnienia */
+  --ink:#1B2A31;            /* tekst główny - chłodny grafit */
+  --ink-soft:#2E4650;       /* nagłówki drugorzędne */
+  --muted:#5C6F76;          /* tekst poboczny */
+  --line:rgba(27,42,49,.14);/* hairline */
+  --accent:#A05B28;         /* ciepły brąz - główny akcent */
+  --accent-d:#7C441C;
+  --accent-soft:rgba(160,91,40,.10);
+  --accent-2:#ACB5A8;       /* chłodna szałwia - drugi kolor, gra na ciemnych sekcjach */
+  --dark:#16262E;           /* sekcje ciemne (stopka/CTA) - głęboki chłodny grafit */
 
   /* ODSTĘPY — skala 4/8 */
   --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px;
@@ -658,12 +659,12 @@ section{padding-block:clamp(64px,8vw,128px)}
 .nav{background:transparent}
 .nav::after{content:"";position:absolute;left:0;right:0;top:0;height:150px;z-index:-1;pointer-events:none;transition:opacity .35s ease;background:linear-gradient(180deg,rgba(8,6,4,.55) 0%,rgba(8,6,4,0) 100%)}
 .nav.nav-solid::after{opacity:0}
-.nav .brand .name{color:#f5f1ea}
-.nav .brand .sub{color:rgba(245,241,234,.82)}
-.nav .nav-links a:not(.btn-accent){color:rgba(245,241,234,.9)}
+.nav .brand .name{color:#F2F4F0}
+.nav .brand .sub{color:rgba(242,244,240,.82)}
+.nav .nav-links a:not(.btn-accent){color:rgba(242,244,240,.9)}
 .nav .nav-links a:not(.btn-accent):hover,.nav .nav-links a.active:not(.btn-accent){color:#fff}
 .nav .nav-links a:not(.btn-accent)::after{background:#fff}
-.nav .nav-toggle span{background:#f5f1ea}
+.nav .nav-toggle span{background:#F2F4F0}
 .nav.nav-solid{background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:saturate(140%) blur(10px);border-bottom:var(--hairline)}
 .nav.nav-solid .brand .name{color:var(--ink)}
 .nav.nav-solid .brand .sub{color:var(--accent-d)}
@@ -676,7 +677,7 @@ section{padding-block:clamp(64px,8vw,128px)}
 .nav .nav-inner{position:relative;height:64px}
 .nav .nav-links{flex:1;justify-content:center;gap:clamp(1rem,2.2vw,1.9rem);padding-right:12rem}
 .nav .nav-links a.btn-accent{position:absolute;right:0;top:50%;transform:translateY(-50%);margin:0}
-.nav:not(.nav-solid) .nav-links a.btn-accent{background:transparent;border-color:rgba(245,241,234,.55);color:#f5f1ea}
+.nav:not(.nav-solid) .nav-links a.btn-accent{background:transparent;border-color:rgba(242,244,240,.55);color:#F2F4F0}
 .nav:not(.nav-solid) .nav-links a.btn-accent:hover{background:var(--accent);border-color:var(--accent);color:#14171c;transform:translateY(-50%)}
 }
 @media(max-width:680px){
@@ -1003,8 +1004,37 @@ footer{view-transition-name:mt-foot}
 /* === /HERO-FIT === */
 
 
-/* === auto-paleta ze zdjęć klienta (dopasowanie do estetyki socials) === */
-:root{--accent:#916322;--accent-d:#6A4715;--accent-soft:rgba(145,99,34,0.10);--paper:#F9F9F8;--paper-2:#EFEFED;--paper-3:#E8E7E5;}
+/* === PALETA 03.08.2026: ciepły brąz + chłodna szałwia ACB5A8 ===
+   Zastąpiła jednolitą, oliwkowo-brązową auto-paletę (#916322) - była za mdła.
+   Ciepły brąz zostaje głównym akcentem (przyciski, linki, ikony na jasnym),
+   ACB5A8 wchodzi jako drugi kolor: jasne pasy sekcji + detale na ciemnym tle,
+   gdzie brąz gaśnie. Ten blok jest OSTATNIM :root w pliku, więc on wygrywa. */
+:root{
+  --accent:#A05B28;--accent-d:#7C441C;--accent-soft:rgba(160,91,40,0.10);
+  --accent-2:#ACB5A8;
+  --paper:#F8F8F6;--paper-2:#E3E9E1;--paper-3:#D3DBD1;
+  --ink:#1B2A31;--ink-soft:#2E4650;--muted:#5C6F76;
+  --line:rgba(27,42,49,.14);
+  --dark:#16262E;
+}
+
+/* Na ciemnych sekcjach (hero, pasek, CTA, stopka, „awaria") brąz robi się błotnisty
+   - tam detale idą szałwią ACB5A8, przez co oba kolory faktycznie się przeplatają. */
+.cta .eyebrow,.awaria .eyebrow{color:var(--accent-2)}
+.cta .eyebrow::before,.awaria .eyebrow::before{background:var(--accent-2)}
+.foot-col h4{color:var(--accent-2);opacity:.85}
+.hf-phone-num .ico-tel{color:var(--accent-2)}
+.hero-fach{--accent-lit:var(--accent-2)}
+@supports (color:color-mix(in srgb,red,blue)){
+  .hero-fach{--accent-lit:color-mix(in srgb,var(--accent-2) 88%,#fff)}
+}
+
+/* KONTRAST: wcześniejszy blok „P0" ustawiał na przyciskach akcentu CIEMNY tekst (#14171c),
+   bo liczono go dla jasnego bursztynu. Nasz akcent jest ciemnym brązem - tam poprawnie
+   czyta się biel (5.2:1), ciemny tekst dawał 3.5:1. */
+.btn-accent,.nav .nav-links a.btn-accent,.nav .nav-links a.btn-accent:hover,
+.nav:not(.nav-solid) .nav-links a.btn-accent:hover,
+.sticky-call .sc-call{color:#fff}
 
 /* logo klienta: nad ciemnym hero nav jest przezroczysty -> znak w wersji jasnej */
 .nav:not(.nav-solid) .brand-logo{filter:brightness(0) invert(1);opacity:.94}
