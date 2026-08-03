@@ -5,19 +5,19 @@
    ============================================================ */
 
 :root{
-  /* PALETA - chłodny niebieski (bez brązu), aktualizacja 03.08.2026 */
-  --paper:#F7F9FB;          /* główne tło - chłodna biel */
-  --paper-2:#E7EEF4;        /* sekcje alternatywne (jasny błękit) */
-  --paper-3:#D6E2EC;        /* delikatne wypełnienia */
-  --ink:#12242F;            /* tekst główny - granatowy grafit */
-  --ink-soft:#22414F;       /* nagłówki drugorzędne */
-  --muted:#56707F;          /* tekst poboczny */
-  --line:rgba(18,36,47,.14);/* hairline */
-  --accent:#1D5A87;         /* głęboki niebieski - główny akcent */
-  --accent-d:#14425F;
-  --accent-soft:rgba(29,90,135,.10);
-  --accent-2:#7FB2D6;       /* jasny błękit - drugi kolor, gra na ciemnych sekcjach */
-  --dark:#0F2433;           /* sekcje ciemne (stopka/CTA) - granat */
+  /* PALETA - dużo jasnego błękitu + głęboki brąz 663F30 jako akcent (03.08.2026 v3) */
+  --paper:#F0F7FD;          /* główne tło - jasny błękit */
+  --paper-2:#D8EAF8;        /* sekcje alternatywne - wyraźny błękit */
+  --paper-3:#BFDCF3;        /* delikatne wypełnienia - mocniejszy błękit */
+  --ink:#10293A;            /* tekst główny - granat */
+  --ink-soft:#1D4560;       /* nagłówki drugorzędne */
+  --muted:#4E6E80;          /* tekst poboczny */
+  --line:rgba(16,41,58,.14);/* hairline */
+  --accent:#663F30;         /* głęboki brąz - główny akcent */
+  --accent-d:#4E2E23;
+  --accent-soft:rgba(102,63,48,.10);
+  --accent-2:#7FC3EE;       /* jasny błękit - drugi kolor, gra na ciemnych sekcjach */
+  --dark:#10344C;           /* sekcje ciemne (stopka/CTA) - głęboki niebieski */
 
   /* ODSTĘPY — skala 4/8 */
   --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px;
@@ -1004,38 +1004,51 @@ footer{view-transition-name:mt-foot}
 /* === /HERO-FIT === */
 
 
-/* === PALETA 03.08.2026 (v2): chłodny niebieski, ZERO brązu ===
-   Poprzednia wersja łączyła ciepły brąz z szałwią ACB5A8 - jasny brąz miał zejść
-   całkowicie, a całość ma być chłodniejsza i mocniej niebieska.
-   Głęboki niebieski #1D5A87 jest głównym akcentem (przyciski, linki, ikony na jasnym),
-   jasny błękit #7FB2D6 wchodzi jako drugi kolor: pasy sekcji + detale na ciemnym tle.
+/* === PALETA 03.08.2026 (v3): DUŻO jasnego błękitu + głęboki brąz #663F30 ===
+   Wcześniejsze wersje miały jasny, „mdły" brąz - ten zszedł całkowicie. Zostaje jeden,
+   głęboki i nasycony brąz #663F30 (wprost wskazany przez klienta) i pracuje wyłącznie
+   jako akcent: przyciski, linki, ikony, ramki na jasnym tle.
+   Reszta strony jest błękitna - tło całej strony (#F0F7FD), pasy sekcji (#D8EAF8),
+   wypełnienia (#BFDCF3), ciemne sekcje w głębokim niebieskim (#10344C), a detale
+   na nich w jasnym błękicie #7FC3EE. Błękit dominuje, brąz jest przyprawą.
    Ten blok jest OSTATNIM :root w pliku, więc on wygrywa. */
 :root{
-  --accent:#1D5A87;--accent-d:#14425F;--accent-soft:rgba(29,90,135,0.10);
-  --accent-2:#7FB2D6;
-  --paper:#F7F9FB;--paper-2:#E7EEF4;--paper-3:#D6E2EC;
-  --ink:#12242F;--ink-soft:#22414F;--muted:#56707F;
-  --line:rgba(18,36,47,.14);
-  --dark:#0F2433;
+  --accent:#663F30;--accent-d:#4E2E23;--accent-soft:rgba(102,63,48,0.10);
+  --accent-2:#7FC3EE;
+  --paper:#F0F7FD;--paper-2:#D8EAF8;--paper-3:#BFDCF3;
+  --ink:#10293A;--ink-soft:#1D4560;--muted:#4E6E80;
+  --line:rgba(16,41,58,.14);
+  --dark:#10344C;
 }
 
-/* Na ciemnych sekcjach (hero, pasek, CTA, stopka, „awaria") ciemny niebieski gaśnie
-   - tam detale idą jasnym błękitem #7FB2D6, więc oba odcienie się przeplatają. */
+/* Na ciemnych sekcjach (hero, pasek, CTA, stopka, „awaria") ciemny brąz by zgasł
+   - tam wszystko idzie jasnym błękitem #7FC3EE, więc błękitu jest jeszcze więcej. */
 .cta .eyebrow,.awaria .eyebrow{color:var(--accent-2)}
 .cta .eyebrow::before,.awaria .eyebrow::before{background:var(--accent-2)}
 .foot-col h4{color:var(--accent-2);opacity:.85}
 .hf-phone-num .ico-tel{color:var(--accent-2)}
-.hero-fach{--accent-lit:var(--accent-2)}
+/* kicker + akcent w H1 na hero: liczone wcześniej z --accent, czyli brąz zmieszany z bielą
+   dawał jasny beż (dokładnie ten „jasny brąz", którego nie chcemy). Oba idą z błękitu. */
+.hero-fach{--accent-lit:var(--accent-2);--accent-strong:var(--accent-2)}
 @supports (color:color-mix(in srgb,red,blue)){
-  .hero-fach{--accent-lit:color-mix(in srgb,var(--accent-2) 88%,#fff)}
+  .hero-fach{--accent-lit:color-mix(in srgb,var(--accent-2) 88%,#fff);
+             --accent-strong:color-mix(in srgb,var(--accent-2) 94%,#fff)}
 }
+/* pasek liczb: kreski przy pozycjach na granacie - błękit zamiast niewidocznego brązu */
+.strip .item{border-left-color:var(--accent-2)}
+/* przycisk akcentu stojący na ciemnym tle (hero, „awaria") - błękit + granatowy tekst (7,3:1) */
+.hero-fach .btn-accent,.awaria .btn-accent{background:var(--accent-2);color:#10293A;border-color:var(--accent-2)}
+.hero-fach .btn-accent:hover,.awaria .btn-accent:hover{background:#9AD2F4;color:#10293A}
 
 /* KONTRAST: wcześniejszy blok „P0" ustawiał na przyciskach akcentu CIEMNY tekst (#10202C),
-   bo liczono go dla jasnego bursztynu. Nasz akcent jest głębokim niebieskim - tam poprawnie
-   czyta się biel (5.2:1), ciemny tekst dawał 3.5:1. */
+   bo liczono go dla jasnego bursztynu. Nasz akcent jest głębokim brązem - tam poprawnie
+   czyta się biel (9,0:1), ciemny tekst dawał ok. 1,4:1. */
 .btn-accent,.nav .nav-links a.btn-accent,.nav .nav-links a.btn-accent:hover,
 .nav:not(.nav-solid) .nav-links a.btn-accent:hover,
 .sticky-call .sc-call{color:#fff}
+/* ...ale na ciemnym tle przycisk jest błękitny, więc tam wraca granatowy tekst */
+.hero-fach .btn-accent,.awaria .btn-accent,
+.hero-fach .btn-accent:hover,.awaria .btn-accent:hover{color:#10293A}
 
 /* logo klienta: nad ciemnym hero nav jest przezroczysty -> znak w wersji jasnej */
 .nav:not(.nav-solid) .brand-logo{filter:brightness(0) invert(1);opacity:.94}
